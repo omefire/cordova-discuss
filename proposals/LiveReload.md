@@ -20,14 +20,13 @@ So, I've thrown together a prototype version so that anyone could try it out and
 Also, Parashu has put together a different implementation : 
 [cordova livereload as a plugin] (https://github.com/axemclion/cordova-plugin-browsersync).
 
-## Approach 1 (Cordova Core)
+## Approach 1 (As part of Cordova Core)
 ###Advantages
 - Easily discoverable as it's in cordova-lib
 - Easily available: nothing to do except add a flag : 'cordova run android --liverelad'
 - Dependencies only get installed on user needing the livereload features (Lazy install & require)
 - Support for multiple platforms. 'cordova run android windows --livereload'
 - Support for UI sync across multiple platforms (scrolls, typing, etc...)
-- 
 
 ###Disadvantages
 - Code is part of Cordova core, so can be construed as pushing Browser-Sync based livereload against other implementations (e.g: livereload package)
