@@ -25,14 +25,19 @@ Also, Parashu has put together a different implementation :
 - Easily discoverable as it's in cordova-lib
 - Easily available: nothing to do except add a flag : 'cordova run android --liverelad'
 - Dependencies only get installed on user needing the livereload features (Lazy install & require)
-- Support for multiple platforms
+- Support for multiple platforms. 'cordova run android windows --livereload'
+- Support for UI sync across multiple platforms (scrolls, typing, etc...)
+- 
 
 ###Disadvantages
-- Requires python and native compilation
-- Code is part of Cordova core
+- Code is part of Cordova core, so can be construed as pushing Browser-Sync based livereload against other implementations (e.g: livereload package)
 
 ## Approach 2 (As a Cordova Plugin)
 ###Advantages
+- More modular as code is in a plugin
+- Can integrate well with third-party workflows (gulp, grunt, etc...)
+- 
+
 ###Disadvantages
 
 ##How to run the prototypes
@@ -40,6 +45,10 @@ Also, Parashu has put together a different implementation :
 ###How to run the cordova core-based implementation
 - Grab the branch from here : [https://github.com/MSOpenTech/cordova-lib/commits/LiveReload](https://github.com/MSOpenTech/cordova-lib/commits/LiveReload)
 - Create a project
+- Change the CSP policy to allow the cordova app to connect to websocket servers and allow inline execution of scripts. Replace the default CSP policy in index.html by the following :
+
+```<meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;">```
+ 
 - From within the project, run : 'cordova run <platform> --livereload'
 
 ###How to run the cordova plugin-based implementation
