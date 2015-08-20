@@ -46,15 +46,19 @@ Also, Parashu has put together a different implementation :
 ##How to run the prototypes
 
 ###How to run the cordova core-based implementation
-- Grab the branch from here : [https://github.com/MSOpenTech/cordova-lib/commits/LiveReload](https://github.com/MSOpenTech/cordova-lib/commits/LiveReload)
-- Create a project
-- Change the CSP policy to allow the cordova app to connect to websocket servers and allow inline execution of scripts. Replace the default CSP policy in index.html by the following :
+- grab the branch from here : [https://github.com/MSOpenTech/cordova-lib/commits/LiveReload](https://github.com/MSOpenTech/cordova-lib/commits/LiveReload)
+- create a project
+- change the CSP policy to allow inline-scripts and websocket connection. Replace the default CSP policy in index.html by the following :
 
 ```<meta http-equiv="Content-Security-Policy" content="default-src *; style-src * 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' *;">```
  
-- From within the project, run : 'cordova run <platform> --livereload'
+- From within the project, run : ```cordova run <platform> --livereload```
 
 ###How to run the cordova plugin-based implementation
+- create a project
+- change the CSP policy to allow inline-scripts and websocket connection : https://www.youtube.com/watch?v=XTXYhYS2m0c
+- add the plugin : ```cordova plugin add https://github.com/axemclion/cordova-plugin-browsersync.git```
+- from within the project, run : ```cordova run <platform>```
 
 ##Please, provide your feedback :
 - Do you think it makes sense to bring in LiveReload ?
